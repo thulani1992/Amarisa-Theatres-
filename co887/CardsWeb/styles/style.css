@@ -1,0 +1,44 @@
+/* Example Style Sheet */
+
+/* This keeps the visited links blue (overriding the browser's default) */
+a:visited { color: brown; }
+
+
+
+h3, {background-color: khaki;}
+
+#orderbutton { background-color: khaki; } 
+
+
+/* Table styles */
+/* Set and collapses the borders */
+table, td, tr, th { 
+	border: solid 1px brown;
+	border-collapse: collapse;
+	margin: auto;
+}
+
+td, th {
+	width: 100px;
+	text-align: center;
+}
+
+th { background-color: khaki}
+
+
+/* Set the margins */
+
+.content, .heading {
+	max-width: 600px;
+	margin: 5px 20px 5px 20px;
+	padding: 5px 20px 5px 20px;
+	}
+	
+
+#orderform {
+	border: dotted 1px;
+	margin: 20px;
+	padding: 10px;
+	}
+	
+	background-color: red

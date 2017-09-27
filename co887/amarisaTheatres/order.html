@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>B-cards: business cards on demand</title>
+		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<script type="text/javascript">
+			function getQuote() {
+				var qtyvar = document.getElementById("qty").value;
+				var qlyvar= document.getElementById("qly").value;
+				var quote;
+				if (qlyvar=="basic") {
+					quote=10*qtyvar;
+				}
+				else if (qlyvar=="medium") {
+					quote=15*qtyvar;
+				}
+				else if (qlyvar=="high") {
+					quote=20*qtyvar;
+				}
+		alert('Quote ='+ quote);
+	}
+	</script>
+	</head>
+	<body>
+		
+		<div class="heading">
+			<img src="images/logo.png" alt="B-cards logo" width="100">
+			<h1>B-cards - business cards on demand</h1>
+			
+			<div id="menu">
+				<a href="index.html">home</a> |
+				<a href="order.html">order</a>
+			</div>
+		</div>
+		
+		<div class="content">
+			<p>This is the list of our services (the price is for 100 business cards):</p>
+			<table>
+				<tr>
+					<th>Quality</th>
+					<th>Colour</th>
+					<th>Images</th>
+					<th>Text</th>
+					<th>Price</th>
+				</tr>
+				<tr class="oddrow">
+					<td>basic</td>
+					<td>no</td>
+					<td>no</td>
+					<td>yes</td>
+					<td>£10 x 100</td>
+				</tr>
+				<tr class="evenrows">
+					<td>medium</td>
+					<td>yes</td>
+					<td>no</td>
+					<td>yes</td>
+					<td>£15 x 100</td>
+				</tr>
+				<tr class="oddrow">
+					<td>high</td>
+					<td>yes</td>
+					<td>yes</td>
+					<td>yes</td>
+					<td>£20 x 100</td>
+				</tr>
+			</table>
+			<div class="focus">
+				<h3>Order now!</h3>
+				
+				<form action="process.php" method="GET">
+					<p>Business name: <input type="text" name="name" Onchange= '
+						var str = this.value;
+						if(str.length<1) {
+							alert(" This is a required field.");
+						}'>
+					</p>
+					
+					<p>Quantity (of 100 cards sets): <input id="qty" name="number" type="text" Onchange = '
+						if( !( this.value > 0 && this.value < 500 ) ) {
+							alert( this.value + " is not a valid quantity, or exceeds maximum quantity.");
+							this.value="";
+						}'>
+					</p>
+					
+					<p>Quality (basic, medium or high): <input id= "qly" type="text" name="quality" Onchange = '
+						var str = this.value;
+						if( !( str == "basic" || str == "medium" || str == "high") ) {
+							alert( this.value + " is not a valid quality. Please select \"basic\", \"medium\", or \"high\".");
+							this.value="";
+						}'>
+					</p>
+					<p><input class="mybutton" type="button" name="Quote" value="Calculate quote" onclick="getQuote();"></p>	
+					<p><input class="mybutton" id="orderbutton" type="submit" name="Order" value="Proceed with order"></p>	
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
